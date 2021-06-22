@@ -12,13 +12,14 @@ const state = {
 };
 
 const getters = {
+  panding: (state) => state.panding,
   weather: (state) => state.weather,
   city: (state) => state.city,
 };
 
 const actions = {
   fetchWeather({ commit }) {
-    commit('LOADING_STATUS', true);
+    commit("LOADING_STATUS", true);
     axios
       .get(
         `http://api.openweathermap.org/data/2.5/weather?q=Kherson&units=metric&appid=${api_key}`

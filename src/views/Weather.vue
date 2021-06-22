@@ -89,7 +89,7 @@ export default {
       return moment.unix(unix).format("HH:mm");
     },
     unixToDay(unix) {
-      return moment.unix(unix).format("dddd");
+      return unix ? moment.unix(unix).format("dddd") : "Loading";
     },
     ceilTemp(main) {
       return main ? Math.ceil(main.temp) : 0;
