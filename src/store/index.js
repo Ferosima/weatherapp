@@ -17,7 +17,7 @@ const actions = {
   fetchWeather({ commit }, city) {
     axios
       .get(
-        `http://api.weatherapi.com/v1/forecast.json?key=${api_key}&q=${city}&days=7&aqi=no&alerts=no`
+        `https://api.weatherapi.com/v1/forecast.json?key=${api_key}&q=${city}&days=7&aqi=no&alerts=no`
       )
       .then((response) => {
         commit("FETCH_WEATHER", response.data);
