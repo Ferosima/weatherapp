@@ -1,5 +1,5 @@
 # weatherapp
-![Безымянный](https://user-images.githubusercontent.com/55599958/123030823-07b55900-d3ec-11eb-9302-974a9b8ec342.png)
+![Безымянный](https://user-images.githubusercontent.com/55599958/123031563-1fd9a800-d3ed-11eb-87df-af2c9efd00e6.png)
 Developed with Vue framework
 ## Demo:
 http://myweatherappvue.herokuapp.com/
