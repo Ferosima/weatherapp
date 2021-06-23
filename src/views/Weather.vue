@@ -107,7 +107,7 @@ export default {
       background: transparent;
     }
     ::-webkit-scrollbar-thumb {
-      background: #888;
+      background: #e0dcdc;
       border-radius: 10px;
     }
     .row {
@@ -174,6 +174,15 @@ export default {
     .current_weather {
       .column {
         align-items: center;
+      }
+    }
+  }
+}
+@media (max-height: 400px) {
+  .weather_wrapper {
+    .current_weather {
+      .container {
+        padding: 0;
       }
     }
   }
