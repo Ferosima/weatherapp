@@ -2,7 +2,7 @@
   <div class="header_wrapper">
     <h2>{{ unixToDate(date) }}</h2>
     <h1>{{ city }}</h1>
-    <div>Search bar</div>
+    <h2>{{ unixToTime(date) }}</h2>
   </div>
 </template>
 
@@ -18,6 +18,9 @@ export default {
   methods: {
     unixToDate(unix) {
       return moment.unix(unix).format("DD.MM.YYYY");
+    },
+    unixToTime(unix) {
+      return moment.unix(unix).format("LT");
     },
   },
 };

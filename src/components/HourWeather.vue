@@ -1,16 +1,27 @@
 <template>
   <div class="hour_weather_wrapper">
-    <h1>{{ time }}</h1>
-    <h2>{{ temperature }}</h2>
+    <h1>{{ unixToTime(time) }}</h1>
+    <img :src="weather" alt="W3Schools.com" />
+    <h2>{{ ceilTemp(temperature) }}°</h2>
   </div>
 </template>
 
 <script>
+import moment from "moment";
 export default {
   name: "HourWeather",
   props: {
     time: String,
     temperature: String,
+    weather: String,
+  },
+  methods: {
+    unixToTime(unix) {
+      return moment.unix(unix).format("HH:mm");
+    },
+    ceilTemp(float) {
+      return Math.ceil(float);
+    },
   },
 };
 </script>
@@ -31,8 +42,12 @@ h1 {
 }
 h2 {
   font-size: 18px;
+  font-weight: bold;
 }
-@media (max-width: 425px) {
+img{
+      width: 40px;
+}
+@media (max-width: 680px) {
   .hour_weather_wrapper {
     background-color: #fff;
   }

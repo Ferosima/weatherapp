@@ -1,28 +1,23 @@
 import { createStore } from "vuex";
 import axios from "axios";
 
-const api_key = "e8fcd2de9b1349c6681eac7be3a35743";
+const api_key = "d9e4b0e01942497d9c6121005211806";
 
 axios.defaults.baseURL = "";
 
 const state = {
-  weather: {},
-  city: "Kiev",
+  weather: null,
   pending: false,
 };
 
 const getters = {
-  panding: (state) => state.panding,
-  weather: (state) => state.weather,
-  city: (state) => state.city,
 };
 
 const actions = {
-  fetchWeather({ commit }) {
-    commit("LOADING_STATUS", true);
+  fetchWeather({ commit }, city) {
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?q=Kherson&units=metric&appid=${api_key}`
+        `http://api.weatherapi.com/v1/forecast.json?key=${api_key}&q=${city}&days=7&aqi=no&alerts=no`
       )
       .then((response) => {
         commit("FETCH_WEATHER", response.data);
@@ -33,10 +28,7 @@ const actions = {
 const mutations = {
   FETCH_WEATHER(state, weather) {
     state.weather = weather;
-    console.log("WEATHER", weather);
-  },
-  LOADING_STATUS(state, status) {
-    state.panding = status;
+    state.city = weather.location.name;
   },
 };
 
